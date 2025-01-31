@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اکانت‌ها</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="accounts-content">
+        <h1>لیست اکانت‌ها</h1>
+        <table id="accountsTable">
+            <thead>
+                <tr>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>نام کاربری</th>
+                    <th>ایمیل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- اطلاعات کاربران اینجا قرار می‌گیرد -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- نوار پایینی -->
+    <div class="bottom-nav">
+        <a href="assets.html" class="nav-item">Assets</a>
+        <a href="#" class="nav-item">Futures</a>
+        <a href="index.html" class="nav-item middle">Home</a>
+        <a href="currencies.html" class="nav-item">Markets</a>
+        <a href="#" class="nav-item">Search</a>
+    </div>
+
+    <script>
+        async function fetchAccounts() {
+            const response = await fetch('/accounts');
+            const accounts = await response.json();
+
+            const tableBody = document.getElementById('accountsTable').querySelector('tbody');
+            tableBody.innerHTML = '';
+
+            accounts.forEach(account => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${account.name}</td>
+                    <td>${account.lastname}</td>
+                    <td>${account.username}</td>
+                    <td>${account.email}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchAccounts);
+    </script>
+</body>
+</html>

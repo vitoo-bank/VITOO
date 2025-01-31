@@ -3,26 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لیست ارزها</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>نمایش ارزها به شکل کارت</title>
+    <link rel="stylesheet" href="styles1.css">
 </head>
 <body>
-    <div class="currencies-content">
-        <h1>لیست ارزها</h1>
-        <ul class="currency-list">
-            <li><strong>KHANCOIN (KNC)</strong></li>
-            <li><strong>ENERGINUM (EGY)</strong></li>
-            <li><strong>EXTRAFU (ETF)</strong></li>
-            <li><strong>OSHENG (OSH)</strong></li>
-            <li><strong>GRYKS (GRY)</strong></li>
-             <li><strong>ATANK (ATK)</strong></li>
-            <li><strong>FREUP (FEP)</strong></li>
-             <li><strong>EUROHS (EUR)</strong></li>
-        </ul>
-        </ul>
-    </div>
+    <div id="cardContainer"></div>
 
-    <!-- نوار پایینی -->
     <div class="bottom-nav">
         <a href="assets.html" class="nav-item">Assets</a>
         <a href="#" class="nav-item">Futures</a>
@@ -30,5 +16,35 @@
         <a href="currencies.html" class="nav-item">Markets</a>
         <a href="#" class="nav-item">Search</a>
     </div>
+
+    <script src="scripts1.js"></script>
+    <script>
+        const currencies = [
+            { name: 'KHANCOIN', symbol: 'KNC', price: "کلیک کنید" , link: 'khancoin.html' },
+            { name: 'ENERGINUM', symbol: 'EGY', price: "کلیک کنید", link: 'energinum.html' },
+            { name: 'EXTRAFU', symbol: 'ETF', price: "کلیک کنید", link: 'extrafu.html' },
+            { name: 'OSHENG', symbol: 'OSH', price: "کلیک کنید", link: 'osheng.html' },
+            { name: 'GRYKS', symbol: 'GRY', price: "کلیک کنید", link: 'gryks.html' },
+            { name: 'ATANK', symbol: 'ATK', price: "کلیک کنید", link: 'atank.html' },
+            { name: 'FREUP', symbol: 'FEP', price: "کلیک کنید", link: 'freup.html' },
+            { name: 'EUROHS', symbol: 'EUR', price:"کلیک کنید", link: 'eurohs.html' }
+        ];
+
+        const cardContainer = document.getElementById('cardContainer');
+
+        currencies.forEach(currency => {
+            const card = document.createElement('div');
+            card.className = 'currencyCard';
+            card.innerHTML = `
+                <h3>${currency.name}</h3>
+                <p>نماد: ${currency.symbol}</p>
+                <p id="price${currency.symbol}">قیمت: ${currency.price}</p>
+            `;
+            card.onclick = () => {
+                window.location.href = currency.link;
+            };
+            cardContainer.appendChild(card);
+        });
+    </script>
 </body>
 </html>

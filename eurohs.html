@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUROHS</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div id="container"></div>
+
+    <div class="bottom-nav">
+        <a href="assets.html" class="nav-item">Assets</a>
+        <a href="#" class="nav-item">Futures</a>
+        <a href="index.html" class="nav-item middle">Home</a>
+        <a href="currencies.html" class="nav-item">Markets</a>
+        <a href="#" class="nav-item">Search</a>
+    </div>
+
+    <script src="scripts2.js"></script>
+    <script>
+        const currency = { name: 'EUROHS', symbol: 'EUR', price: 0.678 };
+
+        const container = document.getElementById('container');
+
+        // ایجاد ربع‌ها
+        const topLeft = document.createElement('div');
+        topLeft.className = 'top-left';
+        topLeft.innerHTML = `
+            <h2>اطلاعات EUROHS</h2>
+            <p id="priceEUROHS">قیمت: ${currency.price}</p>
+            <p>توضیحات مربوط به EUROHS...</p>
+        `;
+
+        const topRight = document.createElement('div');
+        topRight.className = 'top-right';
+        topRight.innerHTML = `
+            <h2>جدول</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ستون ۱</th>
+                        <th>ستون ۲</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>مقدار ۱</td>
+                        <td>مقدار ۲</td>
+                    </tr>
+                    <tr>
+                        <td>مقدار ۳</td>
+                        <td>مقدار ۴</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+
+        const bottomLeft = document.createElement('div');
+        bottomLeft.className = 'bottom-left';
+        bottomLeft.innerHTML = `
+            <h2>بخش پایین چپ</h2>
+            <p>محتوا...</p>
+        `;
+
+        const bottomRight = document.createElement('div');
+        bottomRight.className = 'bottom-right';
+        bottomRight.innerHTML = `
+            <h2>بخش پایین راست</h2>
+            <p>محتوا...</p>
+        `;
+
+        // اضافه کردن ربع‌ها به کانتینر
+        container.appendChild(topLeft);
+        container.appendChild(topRight);
+        container.appendChild(bottomLeft);
+        container.appendChild(bottomRight);
+    </script>
+</body>
+</html>

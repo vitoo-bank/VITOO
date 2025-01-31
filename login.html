@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ورود / ثبت‌نام</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function redirectToRegister() {
+            window.location.href = 'register.html';
+        }
+    </script>
 </head>
 <body>
     <div class="login-content">
-        <h1>ورود یا ثبت‌نام</h1>
+        <h1>ورود/عضویت</h1>
         <form class="login-form">
             <input type="text" placeholder="نام کاربری" required>
             <input type="password" placeholder="رمز عبور" required>
             <button type="submit">ورود</button>
-            <button type="button" class="register-btn">ثبت‌نام</button>
+            <button type="button" class="register-btn" onclick="redirectToRegister()">ثبت‌نام</button>
         </form>
     </div>
 
